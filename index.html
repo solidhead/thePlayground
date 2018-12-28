@@ -19,16 +19,16 @@
             align-self: center;
             filter: blur(0px);
             transition: filter 1s;
+            opacity: 1;
+            pointer-events: none;
         }
         .box:hover{
-            background-color:lightgreen;
-            color: lightgreen;
             transition: background-color 1s, color 1s;
         }
         .box:hover > .text {
-            color: lightgreen;
+            opacity:0;
             filter: blur(5px);
-            transition: filter 1s;
+            transition: filter 1s, opacity 1s;
         }
     </style>
 </head>
@@ -36,26 +36,33 @@
 <body>
     <div style="width:100vw; height:100vh; box-sizing: border-box; overflow: hidden; display: flex; flex-direction: row; justify-content: center;">
     <div style="width:1200px; height:800px; box-sizing: border-box; overflow: hidden; display: flex; flex-direction: row; flex-wrap: wrap; align-self: center;">
-    <div class="box">
+    <div class="box" id="1" onmouseout="changeColor(1)">
         <p class="text">Very Nice</p>
     </div>
-    <div class="box">
+    <div class="box" id="2" onmouseout="changeColor(2)">
         <p class="text">Very Nice</p>
     </div>
-    <div class="box">
+    <div class="box" id="3" onmouseout="changeColor(3)">
         <p class="text">Very Nice</p>
     </div>
-    <div class="box">
+    <div class="box" id="4" onmouseout="changeColor(4)">
         <p class="text">Very Nice</p>
     </div>
-    <div class="box">
+    <div class="box" id="5" onmouseout="changeColor(5)">
         <p class="text">Very Nice</p>
     </div>
-    <div class="box">
+    <div class="box" id="6" onmouseout="changeColor(6)">
         <p class="text">Very Nice</p>
     </div>
     </div>
     </div>
+    <script>
+        function changeColor(a){
+            var b = (""+ Math.random()).substring(2,4) + "," + (""+ Math.random()).substring(2,4) + "," + (""+ Math.random()).substring(2,4) + ",0.2";
+            console.log(b);
+            document.getElementById(a).style.backgroundColor = "rgb(" + b + ")";
+        }
+    </script>
 </body>
 
 </html>
