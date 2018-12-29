@@ -16,23 +16,23 @@
             display:flex;
             flex-direction:row;
             justify-content:center;
-            transition: background-color 1s, color 1s;
+            transition: all 1s;
         }
         .text{
-            display: flex;
+            display: none;
             align-self: center;
             filter: blur(0px);
-            transition: filter 1s;
-            opacity: 1;
+            opacity: 0;
             pointer-events: none;
+            transition: all 1s;
         }
         .box:hover{
-            transition: background-color 1s, color 1s;
+            transition: all 1s!important;
         }
         .box:hover > .text {
-            opacity:0;
-            filter: blur(5px);
-            transition: filter 1s, opacity 1s;
+            opacity: 0!important;
+            filter: blur(100px)!important;
+            transition: all 1s!important;
         }
         p{
            font-family: 'Open Sans', sans-serif; 
@@ -44,22 +44,76 @@
     <div id="big" style="width:100vw; height:100vh; box-sizing: border-box; overflow: hidden; display: flex; flex-direction: row; justify-content: center;">
     <div style="width:1200px; height:800px; box-sizing: border-box; overflow: hidden; display: flex; flex-direction: row; flex-wrap: wrap; align-self: center;">
     <div class="box" id="1" onmouseout="changeColor(1)">
-        <p class="text">Very Nice!</p>
+        <p class="text" id="10">Along the way,</p>
+        <p class="text" id="11">Above the grass,</p>
+        <p class="text" id="12">A strange idea,</p>
+        <p class="text" id="13">So simple,</p>
+        <p class="text" id="14">How wrong, how right,</p>
+        <p class="text" id="15">I haven't seen it,</p>
+        <p class="text" id="16">So Simple,</p>
+        <p class="text" id="17">What a great way to be,</p>
+        <p class="text" id="18">Where do I begin,</p>
+        <p class="text" id="19">I think I remember you,</p>
     </div>
     <div class="box" id="2" onmouseout="changeColor(2)">
-        <p class="text">Quite Beautiful!</p>
+        <p class="text" id="20">Very Nice</p>
+        <p class="text" id="21">Very Nice</p>
+        <p class="text" id="22">Very Nice</p>
+        <p class="text" id="23">Very Nice</p>
+        <p class="text" id="24">Very Nice</p>
+        <p class="text" id="25">Very Nice</p>
+        <p class="text" id="26">Very Nice</p>
+        <p class="text" id="27">Very Nice</p>
+        <p class="text" id="28">Very Nice</p>
+        <p class="text" id="29">Very Nice</p>
     </div>
     <div class="box" id="3" onmouseout="changeColor(3)">
-        <p class="text">Visualy pleasing!</p>
+        <p class="text" id="30">Very Nice</p>
+        <p class="text" id="31">Very Nice</p>
+        <p class="text" id="32">Very Nice</p>
+        <p class="text" id="33">Very Nice</p>
+        <p class="text" id="34">Very Nice</p>
+        <p class="text" id="35">Very Nice</p>
+        <p class="text" id="36">Very Nice</p>
+        <p class="text" id="37">Very Nice</p>
+        <p class="text" id="38">Very Nice</p>
+        <p class="text" id="39">Very Nice</p>
     </div>
     <div class="box" id="4" onmouseout="changeColor(4)">
-        <p class="text">Intriguing, to say the least!</p>
+        <p class="text" id="40">Very Nice</p>
+        <p class="text" id="41">Very Nice</p>
+        <p class="text" id="42">Very Nice</p>
+        <p class="text" id="43">Very Nice</p>
+        <p class="text" id="44">Very Nice</p>
+        <p class="text" id="45">Very Nice</p>
+        <p class="text" id="46">Very Nice</p>
+        <p class="text" id="47">Very Nice</p>
+        <p class="text" id="48">Very Nice</p>
+        <p class="text" id="49">Very Nice</p>
     </div>
     <div class="box" id="5" onmouseout="changeColor(5)">
-        <p class="text">Quite a spectacle!</p>
+        <p class="text" id="50">Very Nice</p>
+        <p class="text" id="51">Very Nice</p>
+        <p class="text" id="52">Very Nice</p>
+        <p class="text" id="53">Very Nice</p>
+        <p class="text" id="54">Very Nice</p>
+        <p class="text" id="55">Very Nice</p>
+        <p class="text" id="56">Very Nice</p>
+        <p class="text" id="57">Very Nice</p>
+        <p class="text" id="58">Very Nice</p>
+        <p class="text" id="59">Very Nice</p>
     </div>
     <div class="box" id="6" onmouseout="changeColor(6)">
-        <p class="text">A pleasure to withness!</p>
+        <p class="text" id="60">Very Nice</p>
+        <p class="text" id="61">Very Nice</p>
+        <p class="text" id="62">Very Nice</p>
+        <p class="text" id="63">Very Nice</p>
+        <p class="text" id="64">Very Nice</p>
+        <p class="text" id="65">Very Nice</p>
+        <p class="text" id="66">Very Nice</p>
+        <p class="text" id="67">Very Nice</p>
+        <p class="text" id="68">Very Nice</p>
+        <p class="text" id="69">Very Nice</p>
     </div>
     </div>
     </div>
@@ -68,6 +122,20 @@
             var b = (""+ Math.random()).substring(2,4) + "," + (""+ Math.random()).substring(2,4) + "," + (""+ Math.random()).substring(2,4) + ",0.3";
             console.log(b);
             document.getElementById(a).style.backgroundColor = "rgb(" + b + ")";
+                for (i = 0; i < 10; i++){
+                    var i = i.toString();
+                    document.getElementById(a + i).style.display = "none";
+                    document.getElementById(a + i).style.opacity = "0";
+                }
+            var c = (""+ Math.random()).substring(2,3);
+            console.log(c);
+            document.getElementById(a + c).style.display = "flex";
+            document.getElementById(a + c).style.filter= "blur(100px)";
+            setTimeout(
+                function() {
+                  document.getElementById(a + c).style.filter= "blur(0px)";
+                }, 2000);
+            document.getElementById(a + c).style.opacity = "1";
         }
     </script>
 </body>
